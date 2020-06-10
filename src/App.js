@@ -26,7 +26,6 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import data from'./components/data/data.json'
-// import ListItem from './components/ListItem';
 
 class App extends Component {
 	render() {
@@ -43,7 +42,11 @@ class App extends Component {
                   uri:item.image,}}/>
                   <View style={styles.textStyle}>
                     <Text >{item.name}</Text>
-                    <Text style={{marginLeft:240}} >{item.likes}</Text>      
+                    <Image 
+                    style={styles.likeStyle}
+                    source={require('./likeicon.png')}>
+                    </Image>
+                    <Text style={{flex:1}} >{item.likes}</Text>      
                   </View>
                   <View style={{flexDirection:'row',backgroundColor:'#dfe6e9'}}>
                     <Text style={{fontSize: 12}}>{item.location}</Text>
@@ -58,25 +61,6 @@ class App extends Component {
   }
 }  
 
-
-// const App = () => {
-//   return (
-//     <>
-//       <StatusBar barStyle="dark-content" />
-//       <SafeAreaView style={{flex:1}}>
-//         <ScrollView>
-//           <View style={{flex:1}}>
-//             <FlatList
-//             keyExtractor={item=>item.id}
-//             data={data}
-//             renderItem={({item})=><ListItem myData={item.name}></ListItem>}>
-//             </FlatList>
-//           </View>
-//         </ScrollView>
-//       </SafeAreaView>
-//     </>
-//   );
-// };
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -105,8 +89,12 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     justifyContent:'flex-start',
     backgroundColor:'#dfe6e9'
+  },
+  likeStyle:{
+    width:20,
+    height:20,
+    marginLeft:215
   }
 });
 
 export default App;
-// export default Example3;
